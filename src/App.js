@@ -3,9 +3,14 @@ import './style.css';
 
 export default function App() {
   fetch('https://jsonkeeper.com/b/HV04', {
+    mode: 'cors',
     method: 'GET',
     credentials: 'same-origin', //include, same-origin
-    headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
   })
     .then((data) => data.json())
     .then((resp) => console.log(resp))
